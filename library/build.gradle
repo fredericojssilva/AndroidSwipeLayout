@@ -1,20 +1,18 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion Integer.parseInt(project.ANDROID_BUILD_SDK_VERSION)
-    buildToolsVersion project.ANDROID_BUILD_TOOLS_VERSION
+    compileSdkVersion 31
+    buildToolsVersion "30.0.3"
 
     defaultConfig {
-        minSdkVersion 9
-        targetSdkVersion Integer.parseInt(project.ANDROID_BUILD_TARGET_SDK_VERSION)
+        minSdkVersion 21
+        targetSdkVersion 31
     }
 }
 
 dependencies {
-    compile 'com.android.support:recyclerview-v7:25.2.0'
-    compile 'com.android.support:support-v4:25.2.0'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
 }
-apply from: './gradle-mvn-push.gradle'
 
 // build a jar with source files
 task sourcesJar(type: Jar) {
