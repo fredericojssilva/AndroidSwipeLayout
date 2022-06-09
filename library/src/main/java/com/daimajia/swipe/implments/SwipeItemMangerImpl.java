@@ -164,6 +164,10 @@ public class SwipeItemMangerImpl implements SwipeItemMangerInterface {
 
         @Override
         public void onLayout(SwipeLayout v) {
+            //do not refresh anything if view is in the middle of the process
+            if (v.getOpenStatus() == SwipeLayout.Status.Middle) {
+                return;
+            }
             if (isOpen(position)) {
                 v.open(false, false);
             } else {
@@ -185,7 +189,7 @@ public class SwipeItemMangerImpl implements SwipeItemMangerInterface {
         public void onClose(SwipeLayout layout) {
             if (mode == Attributes.Mode.Multiple) {
                 mOpenPositions.remove(position);
-            } else {
+            } else if (mOpenPosition == position) {
                 mOpenPosition = INVALID_POSITION;
             }
         }

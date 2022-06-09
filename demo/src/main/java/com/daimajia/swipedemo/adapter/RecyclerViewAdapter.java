@@ -90,6 +90,7 @@ public class RecyclerViewAdapter extends RecyclerSwipeAdapter<RecyclerViewAdapte
         });
         viewHolder.textViewPos.setText((position + 1) + ".");
         viewHolder.textViewData.setText(item);
+        viewHolder.swipeLayout.setShowMode(SwipeLayout.ShowMode.PullOut);
         mItemManger.bind(viewHolder.itemView, position);
     }
 
